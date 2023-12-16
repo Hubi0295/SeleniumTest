@@ -54,4 +54,14 @@ public class SeleniumTest {
     public void WrongBrowserGooglePage(){
         OpenGooglePage("Edde");
     }
+    @Test
+    public void SeleniumDemo() throws WrongBrowserException {
+        WebDriver driver = WebDriverManagerTest.getDriver("chrome");
+        driver.get("http://www.seleniumdemo.com");
+        driver.findElement(By.xpath("//span[text()='Shop']")).click();
+        WebElement seleniumProduct = driver.findElement(By.xpath("//h2[text()='Java Selenium WebDriver']"));
+        Assert.assertTrue(seleniumProduct.isDisplayed());
+        driver.quit();
+
+    }
 }
