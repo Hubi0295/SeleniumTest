@@ -1,6 +1,5 @@
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import java.util.Scanner;
 public class SeleniumTest {
 
     public void OpenGooglePage(String browser){
@@ -19,19 +18,14 @@ public class SeleniumTest {
 
     public WebDriver getDriver(String driver) throws WrongBrowserException{
         driver = driver.toLowerCase();
-        if(driver.equals("chrome")){
-            return new Chrome();
-        }
-        else if(driver.equals("firefox")){
-            return new Firefox();
 
-        } else if (driver.equals("edge")) {
-            return new Edge();
+        return switch (driver) {
+            case "chrome" -> new Chrome();
+            case "firefox" -> new Firefox();
+            case "edge" -> new Edge();
+            default -> throw new WrongBrowserException("Wrong Browser name!");
+        };
 
-        }
-        else{
-            throw new WrongBrowserException("Wrong Browser name!");
-        }
     }
     @Test
     public void ChromeGooglePage(){
