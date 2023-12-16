@@ -1,7 +1,7 @@
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Firefox extends FirefoxDriver implements Driver{
-    public static final String PATH = "C:\\Users\\Daniel\\Downloads\\geckodriver-v0.33.0-win64\\geckodriver.exe";
+    public static final String PATH = "D:\\geckodriver-v0.33.0-win64";
 
     @Override
     public void Setproperty() {
