@@ -134,5 +134,14 @@ public class XPathTest {
         By precSibling = By.xpath("//img/preceding-sibling::*");
         driver.findElement(precSibling);
 
+        By selecAndSelec = By.xpath("//a | //div");
+        driver.findElement(selecAndSelec);
+
+        By koniunkcja = By.xpath("//input[@name='fname' and @id='fname']");
+        driver.findElement(koniunkcja);
+
+        By alternatywa = By.xpath("//input[@name='fname' or @id='blabla']");
+        driver.findElement(alternatywa);
+
     }
 }
