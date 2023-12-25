@@ -83,13 +83,13 @@ public class XPathTest {
         By byClassX = By.xpath("//p[@class='topSecret']");
         driver.findElement(byClassX);
 
-        By ByLinkTextX = By.xpath("//a[text()='Visit W3Schools.com!'");
+        By ByLinkTextX = By.xpath("//a[text()='Visit W3Schools.com!']");
         driver.findElement(ByLinkTextX);
 
         By ByPartialLinkTextX = By.xpath("//a[contains(text(),'Visit')]");
         driver.findElement(ByPartialLinkTextX);
 
-        By allX = By.xpath("//");
+        By allX = By.xpath("//*");
         driver.findElement(allX);
 
         By secoundElement = By.xpath("(//input)[2]");
@@ -122,17 +122,17 @@ public class XPathTest {
         By asc = By.xpath("//div/ancestor::*");
         driver.findElement(asc);
 
-        By foll = By.xpath("//img/following::");
+        By foll = By.xpath("//img/following::*");
         driver.findElement(foll);
 
-        By follSibiling = By.xpath("//img/following-sibiling::*");
-        driver.findElement(follSibiling);
+        By follSibling = By.xpath("//img/following-sibling::*");
+        driver.findElement(follSibling);
 
         By prec = By.xpath("//img/preceding::*");
         driver.findElement(prec);
 
-        By precSibiling = By.xpath("//img/preceding-sibiling::*");
-        driver.findElement(precSibiling);
+        By precSibling = By.xpath("//img/preceding-sibling::*");
+        driver.findElement(precSibling);
 
     }
 }
