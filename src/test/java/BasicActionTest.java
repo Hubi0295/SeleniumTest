@@ -1,13 +1,9 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
 
 public class BasicActionTest {
@@ -25,7 +21,12 @@ public class BasicActionTest {
         WebElement username = driver.findElement(By.name("username"));
         username.clear();
         username.sendKeys("Admin");
-//        username.sendKeys(Keys.ENTER);
+        System.out.println(username.getAttribute("value"));
+        username.sendKeys(Keys.ENTER);
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        driver.switchTo().alert().accept();
+
 
         WebElement checkbox = driver.findElement(By.cssSelector("[type='checkbox']"));
         checkbox.click();
@@ -42,13 +43,27 @@ public class BasicActionTest {
         cars.selectByVisibleText("Audi");
         cars.selectByValue("volvo");
         List<WebElement> carsAll=cars.getOptions();
-        List<WebElement> carsAllSelectedOptions=cars.getAllSelectedOptions();
+        System.out.println("Input your value here: ");
+        String val = "Audi";
         for(WebElement car:carsAll){
             System.out.println(car.getText());
         }
-        for (WebElement car:carsAllSelectedOptions){
-            System.out.println(car.getText());
-        }
+        checkValuesOfSelect(carsAll,val);
+
+        WebElement pararaphHidden = driver.findElement(By.cssSelector(".topSecret"));
+        System.out.println(pararaphHidden.getAttribute("textContent"));
+
+
     }
-//Test
+    @Test
+    public void checkValuesOfSelect(List<WebElement> list,String s){
+        boolean result=false;
+        for(WebElement w:list){
+            if(w.getText().equals(s)){
+                result=true;
+            }
+        }
+        System.out.println("Result of searching in select: "+result);
+    }
 }
+
