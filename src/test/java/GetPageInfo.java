@@ -14,6 +14,7 @@ public class GetPageInfo {
         WebDriver driver = new ChromeDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/basics.html");
         System.out.println(driver.getTitle());
+
         System.out.println(driver.getCurrentUrl());
 
     }
