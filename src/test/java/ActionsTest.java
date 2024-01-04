@@ -24,6 +24,7 @@ public class ActionsTest {
         action.moveToElement(el).perform();
 
         WebElement element = driver.findElement(By.cssSelector("table >tbody>tr:nth-child(2)>td:nth-child(2)"));
+        
         System.out.println(element.getText());
 
 
