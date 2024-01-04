@@ -22,6 +22,7 @@ public class ElementExist {
         String height = driver.findElement(By.tagName("img")).getAttribute("naturalHeight");
         Assert.assertNotEquals("0",height);
 
+
     }
     public boolean isElementExist(By el,WebDriver driver){
         try{
