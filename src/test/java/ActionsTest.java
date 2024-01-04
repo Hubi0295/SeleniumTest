@@ -22,5 +22,10 @@ public class ActionsTest {
         driver.get("https://testeroprogramowania.github.io/selenium/basics.html");
         el = driver.findElement(By.tagName("h1"));
         action.moveToElement(el).perform();
+
+        WebElement element = driver.findElement(By.cssSelector("table >tbody>tr:nth-child(2)>td:nth-child(2)"));
+        System.out.println(element.getText());
+
+
     }
 }
